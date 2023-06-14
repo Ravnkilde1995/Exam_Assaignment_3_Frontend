@@ -2,6 +2,9 @@
 const URL = "http://localhost:8080";
 const URLUser = "http://localhost:8080/api/user";
 const URLEvent = "http://localhost:8080/api/event/all";
+// const URL = "http://https://ravn-kilde.com/tomcat/dat3_exam/";
+// const URLUser = "https://ravn-kilde.com/tomcat/dat3_exam//api/user";
+// const URLEvent = "https://ravn-kilde.com/tomcat/dat3_exam//api/event/all";
 
 
 

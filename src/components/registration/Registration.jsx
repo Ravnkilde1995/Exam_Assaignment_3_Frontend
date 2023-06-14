@@ -26,7 +26,7 @@ const Registration = () => {
   const handleSubmit = () => {
     // localStorage.setItem("username", username);
     // fetch til
-    //const url = "https://ravn-kilde.com/tomcat/dat3_semesterProjek/api/user";
+    //const url = "https://ravn-kilde.com/tomcat/dat3_exam/api/user";
     const url = "http://localhost:8080/api/user"
     const options = {
       method: "POST",
