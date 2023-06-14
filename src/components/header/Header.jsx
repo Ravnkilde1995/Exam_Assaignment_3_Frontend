@@ -31,7 +31,7 @@ const Header = ({loggedIn, setLoggedIn, user, setUser}) => {
             <nav className="Nav">
                 {/*left side NAVBAR*/}
                 {/*Left side icon onClick = Home btn*/}
-                <a className="nav-icon active" href="/"><img src="/vite.svg" height="77px" alt=""></img></a>
+                <a className="nav-icon active" href="/"><img src="/logo.png" height="77px" alt=""></img></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +41,8 @@ const Header = ({loggedIn, setLoggedIn, user, setUser}) => {
                 <a className="nav-item nav-link" href="/contact">Contact</a>
 
                 {/*UNCOMMENT TO SHOWCASE WHAT USER SEES WHEN LOGGEDIN*/}
-                {/* <a className="nav-item nav-link" href="/library">Library</a>
-                <a className="nav-item nav-link" href="/table_example">Table_Example</a> */}
+                 <a className="nav-item nav-link" href="/member">Member</a>
+                {/* <a className="nav-item nav-link" href="/table_example">Table_Example</a>  */}
 
                 {/*!LOGGED IN SHOW REGISTRATION*/}
                 {!facade.loggedIn()

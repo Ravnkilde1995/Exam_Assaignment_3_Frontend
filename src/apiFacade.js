@@ -1,7 +1,8 @@
 
 const URL = "http://localhost:8080";
 const URLUser = "http://localhost:8080/api/user";
-// const URLBookshelf = "http://localhost:8080/api/bookshelf/";
+const URLEvent = "http://localhost:8080/api/event/all";
+
 
 
 function handleHttpErrors(res) {
@@ -28,10 +29,44 @@ function apiFacade() {
         const options = makeOptions("GET", true); //True add's the token
         return fetch(URL + ressource, options).then(handleHttpErrors);
     }
+
+    const fetchEvents = (ressource) => {
+        const options = makeOptions("GET", true); //True add's the token
+        return fetch(URLEvent, options).then(handleHttpErrors);
+    }
     const fetchUser = (user_name) => {
         const options = makeOptions("GET"); //True add's the token
         console.log("URL: " + URLUser + user_name);
         return fetch(URLUser + user_name, options).then(handleHttpErrors);
+    }
+
+    const addEvent = (event) => {
+        const options = {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(event),
+        };
+        return fetch(URL + "/api/event", options).then(handleHttpErrors);
+    }
+
+    const updateEvent = (event) => {
+        const options = {
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(event),
+        };
+        return fetch(URL + "/api/event/" + event.id, options).then(handleHttpErrors);
+    }
+
+    const deleteEvent = (id) => {
+        const options = makeOptions("DELETE");
+        return fetch(URL + "/api/event/" + id, options).then(handleHttpErrors);
     }
 
     const makeOptions = (method, addToken, body) => {
@@ -98,10 +133,14 @@ function apiFacade() {
         login,
         logout,
         fetchData,
+        fetchEvents,
         readJwtToken,
-        fetchUser
+        fetchUser,
+        addEvent,
+        deleteEvent,
+        updateEvent
 
-        // review(bookshelfId, bookId, reviewScore, reviewText) {
+    
 
         
     
