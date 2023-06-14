@@ -1,0 +1,43 @@
+*{box-sizing: border-box}
+
+th, td {
+    border: 1px solid silver;
+    padding:15px;
+}
+
+.loggedin-container {
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+}
+
+.loggedin-container label{
+    padding: 5px 5px;
+    margin-top: 8px;
+    margin-right: 10px;
+    font-size: 18px;
+    border: black auto 1px;
+    width: 120px; /* adjust as needed (as long as it doesn't break the topnav) */
+}
+
+
+/* Style the button inside the container */
+.loggedin-container button {
+    padding: 5px 5px;
+
+    background: #ddd;
+    font-size: 18px;
+    border: none;
+    display: flex; 
+}
+
+.loggedin-container:active{
+    overflow: hidden;
+    color: white;
+}
+
+.loggedin-container button:hover {
+    background: #003d76;
+    color: white;
+}
+
