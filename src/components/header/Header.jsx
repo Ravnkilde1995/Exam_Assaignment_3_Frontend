@@ -41,8 +41,9 @@ const Header = ({loggedIn, setLoggedIn, user, setUser}) => {
                 <a className="nav-item nav-link" href="/contact">Contact</a>
 
                 {/*UNCOMMENT TO SHOWCASE WHAT USER SEES WHEN LOGGEDIN*/}
+                {facade.loggedIn() && facade.readJwtToken(facade.getToken()).roles.includes("user") &&
                  <a className="nav-item nav-link" href="/member">Member</a>
-                {/* <a className="nav-item nav-link" href="/table_example">Table_Example</a>  */}
+                }
 
                 {/*!LOGGED IN SHOW REGISTRATION*/}
                 {!facade.loggedIn()

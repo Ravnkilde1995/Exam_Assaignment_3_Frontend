@@ -9,13 +9,11 @@ const Admin = () => {
     const [id, setId] = useState(0);
 
     useEffect(() => {
-        //TODO sæt eget fetch kald her
         facade.fetchEvents().then((res) => {
             if (res) {
                  setTableData(res);
                  console.log(res)
             }
-            // setDataFromServer(res.msg);
              
         });
     }, []);
@@ -50,8 +48,7 @@ const Admin = () => {
       }
 
     const deleteEvent= (id) => {
-
-      console.log(id)  
+ 
         facade.deleteEvent(id).then((res) => {
             if (res) {
                  console.log(res)
@@ -63,22 +60,18 @@ const Admin = () => {
     return (
         <div>
 {tableData.map((item) => {
-            //console.log("hello hello", items);
-            //console.log("Nummer 2", item.id);
-            //console.log("Nummer 3", item.etag);
             return (
                 <>
                     <br/>
                     <Table className="table table-info" bordered hover>
                         <thead>
                         <tr>
-                            {/*TODO Forskellige kolonner, der står i toppen af tabellen*/}
-                            <th style={{width: "20%"}}>Title</th>
-                            <th style={{width: "12%"}}>Author</th>
-                            {/*<th style={{width: "9%"}}>Category</th>*/}
-                            <th style={{width: "44%"}}>Description</th>
-                            <th style={{width: "6%"}}>Delete Book</th>
-                            <th style={{width: "9%"}}>Review Book</th>
+                            <th style={{width: "10%"}}>Dish</th>
+                            <th style={{width: "10%"}}>Location</th>
+                            <th style={{width: "5%"}}>Price</th>
+                            <th style={{width: "15%"}}>Time</th>
+                            <th style={{width: "10%"}}>Delete Event</th>
+                            <th style={{width: "10%"}}>Update Event</th>
                         </tr>
                         </thead>
                         <tbody key={item.dish}>
@@ -110,8 +103,6 @@ const Admin = () => {
                             }
                             
                             <td>
-                                {/*TODO tilføj action til knap*/}
-                                {/* der skal nok tilføjes en user hertil */}
                                 <Button
                                     onClick={() => deleteEvent(item.id)}
                                     className="btn btn-danger">
@@ -119,7 +110,6 @@ const Admin = () => {
                                 </Button>
                             </td>
                             <td>
-                                {/* der skal nok tilføjes en user hertil */}
                                 {update == true && id == item.id ? 
                                 <Button
                                 onClick={() => {
@@ -166,10 +156,13 @@ const Admin = () => {
                 </>
             );
         })}
+        <div>
+            <h3>Want to add Event?</h3>
             <Button href="/createEvent"
             className="btn btn-primary">
-            add event
+           ADD EVENT
             </Button>
+            </div>
         </div>
         
     );

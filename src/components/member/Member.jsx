@@ -7,13 +7,11 @@ const Member = () => {
     const [tableData, setTableData] = useState([]);
 
     useEffect(() => {
-        //TODO sæt eget fetch kald her
         facade.fetchEvents().then((res) => {
             if (res) {
                  setTableData(res);
                  console.log(res)
             }
-            // setDataFromServer(res.msg);
              
         });
     }, []);
@@ -22,22 +20,17 @@ const Member = () => {
     return (
         <div>
 {tableData.map((item) => {
-            //console.log("hello hello", items);
-            //console.log("Nummer 2", item.id);
-            //console.log("Nummer 3", item.etag);
             return (
                 <>
                     <br/>
                     <Table className="table table-info" bordered hover>
                         <thead>
                         <tr>
-                            {/*TODO Forskellige kolonner, der står i toppen af tabellen*/}
-                            <th style={{width: "20%"}}>Title</th>
-                            <th style={{width: "12%"}}>Author</th>
-                            {/*<th style={{width: "9%"}}>Category</th>*/}
-                            <th style={{width: "44%"}}>Description</th>
-                            <th style={{width: "6%"}}>Delete Book</th>
-                            <th style={{width: "9%"}}>Review Book</th>
+                            <th style={{width: "21%"}}>Dish</th>
+                            <th style={{width: "21%"}}>Location</th>
+                            <th style={{width: "21%"}}>Price</th>
+                            <th style={{width: "21%"}}>Time</th>
+                            <th style={{width: "16%"}}>Assign</th>
                         </tr>
                         </thead>
                         <tbody key={item.dish}>
@@ -47,20 +40,10 @@ const Member = () => {
                             <td>{item.price}</td>
                             <td>{item.time}</td>
                             <td>
-                                {/*TODO tilføj action til knap*/}
-                                {/* der skal nok tilføjes en user hertil */}
                                 <Button
-                                    //onClick={() => addBook(item.volumeInfo.title, item.volumeInfo.authors, item.volumeInfo.description)}
-                                    className="btn btn-danger">
-                                    Delete Book
-                                </Button>
-                            </td>
-                            <td>
-                                {/* der skal nok tilføjes en user hertil */}
-                                <Button
-                                    //onClick={() => addReview(review_text, )}
+                                    //onClick={() => AssignMember()}
                                     className="btn btn-primary">
-                                    Review Book
+                                    Assign Member
                                 </Button>
                             </td>
                         </tr>
